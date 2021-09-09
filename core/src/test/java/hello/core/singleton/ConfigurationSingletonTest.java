@@ -32,6 +32,8 @@ public class ConfigurationSingletonTest {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
         AppConfig bean = ac.getBean(AppConfig.class);
         System.out.println("bean = " + bean.getClass());
+        // 상속한 AppConfig@CGLIB 코드 사용 (@Configuration)
+        // 이미 존재하는 객체를 부르면 스프링 컨테이너에 있는 빈 찾아서 사용
 
     }
 }
