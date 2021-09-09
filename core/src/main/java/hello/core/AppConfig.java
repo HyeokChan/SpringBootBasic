@@ -20,6 +20,10 @@ public class AppConfig {
     //@Bean orderService => new MemoryMemberRepository()
 
 
+    // @Bean memberService -> new MemoryMemberRepository()
+    // @Bean orderService -> new MemoryMemberRepository()
+    // 결과적으로 2개의 MemoryMemberRepository가 생성되면서 싱글톤이 깨지는 것 처럼 보인다.
+
     //call AppConfig.memberService
     //call AppConfig.memberRepository
     //call AppConfig.memberRepository
@@ -29,6 +33,8 @@ public class AppConfig {
     //call AppConfig.memberService
     //call AppConfig.memberRepository
     //call AppConfig.orderService
+    //==> 싱글톤을 보장한다.
+
     @Bean
     public MemberService memberService(){
         System.out.println("call AppConfig.memberService");
