@@ -11,6 +11,7 @@ public class OrderServiceImpl implements OrderService{
     /*private final MemberRepository memberRepository = new MemoryMemberRepository();*/
     /*private final DiscountPolicy discountPolicy = new FixDiscountPolicy();*/
     /*private final DiscountPolicy discountPolicy = new RateDiscountPolicy();*/
+
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
 
@@ -23,7 +24,18 @@ public class OrderServiceImpl implements OrderService{
         this.discountPolicy = discountPolicy;
     }
 
+    /*수정자주입*/
+    /*private MemberRepository memberRepository;
+    private DiscountPolicy discountPolicy;
 
+    @Autowired
+    public void setMemberRepository(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
+    @Autowired
+    public void setDiscountPolicy(DiscountPolicy discountPolicy) {
+        this.discountPolicy = discountPolicy;
+    }*/
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
         Member member = memberRepository.findById(memberId);

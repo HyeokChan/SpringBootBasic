@@ -24,7 +24,7 @@ public class AutowiredTest {
         public void setNoBean1(Member noBean1) {
             System.out.println("noBean1 = " + noBean1);
         }
-        
+
         /*자동주입 할 빈이 없으면 null이 들어간다.*/
         @Autowired
         public void setNoBean2(@Nullable Member noBean2) {
