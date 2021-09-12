@@ -1,5 +1,6 @@
 package hello.core.order;
 
+import hello.core.annotation.MainDiscountPolicy;
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
@@ -24,7 +25,7 @@ public class OrderServiceImpl implements OrderService{
     // 의존성 주입을 위해 빈을 찾을 때, 클래스명으로 먼저 검색하고 클래스가 여러개이면 여러개중에 필드명으로 찾는다.
     // @Qualifier :  추가 구분자
     @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+    public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
         System.out.println("memberRepository = " + memberRepository);
         System.out.println("discountPolicy = " + discountPolicy);
         this.memberRepository = memberRepository;
